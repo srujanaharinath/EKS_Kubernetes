@@ -9,12 +9,29 @@ Key components:
 4. Helm: Used to install the AWS ALB Controller.
 
 Workflow:
-End User / Client
-        ↓ (HTTP/HTTPS request)
-Application Load Balancer (ALB) [Ingress Controller]
-        ↓ (routes traffic)
-Kubernetes Service
-        ↓ (load balances requests)
-Fargate Pods (Running your app containers)
+
+                    ┌────────────────────┐
+                    │  End User / Client │
+                    └────────┬───────────┘
+                             │ HTTP request
+                             ▼
+                    ┌────────────────────┐
+                    │ Application Load   │
+                    │ Balancer (Ingress) │
+                    └────────┬───────────┘
+                             │ Routes traffic
+                      ┌──────▼──────┐
+                      │  Ingress    │
+                      │  Resource   │
+                      └──────┬──────┘
+                             │ Loads balances requests
+                      ┌──────▼──────┐
+                      │  Service    │
+                      └──────┬──────┘
+                             │ Routes to pods
+                  ┌──────────▼──────────┐
+                  │   Fargate Pods      │
+                  │ (game-app, replicas)│
+                  └─────────────────────┘
 
 
