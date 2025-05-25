@@ -10,8 +10,6 @@ Creating the cluster through command line interface:
 Fragate: Fargate is a serverless compute engine for containers that works with both Amazon Elastic Container Service (ECS) and Amazon Elastic Kubernetes Service (EKS)
 you can even choose data plane, worker nodes or ec2 instances 
 
-<img width="1470" alt="image" src="https://github.com/user-attachments/assets/3eee723f-c273-4cd0-b867-5c318ad8ed7d" />
-
 Created deploy.yml and service.yml
 
 aws eks update-kubeconfig --name demo-cluster --region eu-west-1
@@ -22,8 +20,6 @@ eksctl create fargateprofile \
     --region eu-west-1 \
     --name alb-sample-app \
     --namespace game     
-
-<img width="1470" alt="image" src="https://github.com/user-attachments/assets/b31bc937-d7f2-4a82-87d2-a1a7a0e25a56" />
 
 application load balancer - Ingress
 
